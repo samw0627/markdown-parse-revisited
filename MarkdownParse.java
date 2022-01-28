@@ -16,14 +16,18 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
 
+            if (openParen !=-1 && closeParen !=-1){
             String substring = markdown.substring(openParen, closeParen);
             if(!substring.contains(" ")){
                 if(nextOpenBracket !=0 && markdown.charAt(nextOpenBracket-1)!= '!'){
                     toReturn.add(markdown.substring(openParen+1, closeParen));
                 } 
             }
-    
-            
+        }
+        
+        if(closeParen == -1){
+            break;
+        }
             currentIndex = closeParen + 1;
             System.out.println("second "+ currentIndex);
         }
