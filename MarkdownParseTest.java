@@ -34,6 +34,6 @@ public class MarkdownParseTest {
     public void getLinksEmptyFile() throws IOException{
         Path fileName = Path.of("imagelink.md");
 	    String contents = Files.readString(fileName);
-        assertEquals(List.of(), MarkdownParse.getLinks(contents));
+        assertEquals(List.of("https://something.com", "some-page.html"), MarkdownParse.getLinks(contents));
     }
 }
